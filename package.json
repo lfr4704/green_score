@@ -5,10 +5,12 @@
   "main": "index.js",
   "dependencies": {
     "async": "~0.2.8",
+    "aws-sdk": "^2.254.1",
     "body-parser": "^1.18.2",
     "express": "^3.2.6",
     "mongoose": "^5.0.14",
-    "socket.io": "^1.0.0"
+    "socket.io": "^1.0.0",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {},
   "scripts": {
