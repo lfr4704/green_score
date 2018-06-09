@@ -1,0 +1,21 @@
+{
+  "name": "greenscore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lfr4704/green_score.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lfr4704/green_score/issues"
+  },
+  "homepage": "https://github.com/lfr4704/green_score#readme"
+}
