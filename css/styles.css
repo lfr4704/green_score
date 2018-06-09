@@ -1,11 +1,10 @@
 
 
-article {
-    
-}
-
-footer {
-    
+h1 {
+   font-size:2em;
+   color:red;
+   display:inline-block;
+   position:relative;
 }
 
 body {
@@ -112,4 +111,31 @@ input[type=checkbox]:checked ~ #menu{
     .show-menu {
         display:block;
     }
+}
+
+/* profile section */
+.avatar-circle {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+
+.initials {
+  position: relative;
+  top: 25px; /* 25% of parent */
+  font-size: 50px; /* 50% of parent */
+  line-height: 50px; /* 50% of parent */
+  color: #fff;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+}
+
+/* profile */
+.profile{
+    background-color:red;
+    display: block;
 }
