@@ -16,6 +16,7 @@ body {
 .topnav {
   overflow: hidden;
   background-color: #333;
+  max-width:100%;
 }
 
 .topnav a {
