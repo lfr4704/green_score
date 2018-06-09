@@ -25,6 +25,7 @@ li {
     display:inline-block;
     float: left;
     margin-right: 1px;
+    font-size:1.25em;
 }
 /*Style for menu links*/
 li a {
@@ -82,6 +83,7 @@ ul li a:hover + .hidden, .hidden:hover {
     text-align: center;
     padding: 10px 0;
     display: none;
+    Font-size: 1.25em;
 }
 /*Hide checkbox*/
 input[type=checkbox]{
