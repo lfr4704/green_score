@@ -18,6 +18,12 @@
   <link rel="stylesheet" href="css/reset.css?v=1.0">
   <link rel="stylesheet" href="css/styles.css?v=1.0">
   
+  <style>
+    #admin-container {
+      padding-top: 50px;
+    }
+  </style>
+  
   </head>
 
 
@@ -26,7 +32,7 @@
   <input type="checkbox" id="show-menu" role="button">
   <ul id="menu">
     
-    <li><a href="#">ACCOUNT</a></li>
+    <li><a href="index.html">ACCOUNT</a></li>
     <li><a href="activities.html">ACTIVITIES</a></li>
     <li><a href="#">INSIGHT</a></li>
     <li><a href="#">REWARDS</a></li>
@@ -34,6 +40,7 @@
   </ul>
 
   <article>
+    <div id="admin-container">
     UserId
    <input id="user-id" type="text" />
    ActivityId
@@ -46,6 +53,7 @@
    <input id="type" type="text" />
    
    <button id="submit">Submit Activity</button>
+   </div>
   </article>
 
   <footer>
@@ -54,7 +62,28 @@
 
 
   <script>
-    
+  /* global $ */
+  
+    $(document).ready(() => {
+      
+      $('#submit').click(() => {
+        let data = {
+          'desc': $('#activity-desc').val(),
+          'id': $('#activity-id').val(),
+          'user id': $('#user-id').val(),
+          'type': $('#type').val(),
+          'type score': $('#points').val()
+        }
+        
+        console.log(data);
+        $.post('https://green-score-eagarcia.c9users.io/addActivity', data, (s) => {
+          console.log(s);
+          
+          
+        });
+      });
+      
+    });
   </script>
 
 </body>

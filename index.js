@@ -21,8 +21,8 @@ http.listen(process.env.PORT, process.env.IP, () => {
 AWS.config.update({
   region: "us-east-1",
   endpoint: 'https://dynamodb.us-east-1.amazonaws.com',
-  accessKeyId: "AKIAJGTIHGFZQ27JUPWA",
-  secretAccessKey: "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"
+  accessKeyId: "AKIAJCT3HDIJXNKLA5DA",
+  secretAccessKey: "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"
 });
 
 var docClient = new AWS.DynamoDB.DocumentClient();
@@ -100,10 +100,9 @@ app.post('/addActivity', (request, result) => {
             console.error("Unable to add item. Error JSON:", JSON.stringify(error, null, 2));
         } else  {
             console.log("Added item:", JSON.stringify(data, null, 2));
+            result.send(data);
         } 
     });
-    
-    result.send(data);
 });
 
 // Delete
