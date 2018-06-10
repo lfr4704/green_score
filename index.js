@@ -17,7 +17,86 @@ http.listen(process.env.PORT, process.env.IP, () => {
     console.log("Node Server has Started.");
 });
 
-// AWS credentials
-let aws_access_key_id = 'AKIAJK6O3LGKFHSSKWOQ';
-let aws_secret_access_key = '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';
 
+AWS.config.update({
+  region: "us-east-1",
+  endpoint: 'https://dynamodb.us-east-1.amazonaws.com',
+  accessKeyId: "AKIAI5DFZSLXB5SQFW3A",
+  secretAccessKey: "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"
+});
+
+var docClient = new AWS.DynamoDB.DocumentClient();
+
+// Create
+
+// No account creation!
+
+// Read
+
+// Update
+
+app.post('/readUser',(request, result) => {
+    // Provide all notes to the HTML display.
+    
+    console.log(request.body);
+    
+    let activity = {
+        TableName: 'greenscore-account',
+        Key: request.body
+    }
+    
+    console.log(activity);
+    
+    docClient.get(activity, (error, data) => {
+    
+        if (error) {
+            console.error("Unable to read item. Error JSON:", JSON.stringify(error, null, 2));
+        } else  {
+            console.log(data);
+            result.send(data);
+        } 
+    });
+
+});
+
+app.post('/readActivities', (request, result) => {
+    
+    console.log(request.body);
+    
+    let activitySearch = {
+        TableName: 'greenscore-activity',
+        Item: request.body
+    };
+    
+    
+});
+
+app.post('/addActivity', (request, result) => {
+    // Provide all notes to the HTML display.
+    
+    // io.emit('name', object); // emit to user
+    
+    console.log(request.body);
+    
+    let activity = {
+        TableName: 'greenscore-activity',
+        Item: request.body
+    }
+    
+    
+    
+    docClient.put(activity, (error, data) => {
+    
+        if (error) {
+            console.error("Unable to add item. Error JSON:", JSON.stringify(error, null, 2));
+        } else  {
+            console.log("Added item:", JSON.stringify(data, null, 2));
+        } 
+    });
+    
+    result.send(data);
+});
+
+// Delete
+
+// No account deletion
