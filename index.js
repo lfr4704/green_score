@@ -21,8 +21,8 @@ http.listen(process.env.PORT, process.env.IP, () => {
 AWS.config.update({
   region: "us-east-1",
   endpoint: 'https://dynamodb.us-east-1.amazonaws.com',
-  accessKeyId: "AKIAINDIFX6GZ67A5GGA",
-  secretAccessKey: "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"
+  accessKeyId: "AKIAJF4P5EG6G4LKBJ5Q",
+  secretAccessKey: "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"
 });
 
 var docClient = new AWS.DynamoDB.DocumentClient();

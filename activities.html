@@ -59,7 +59,7 @@
 
 
 <body>
-  <label for="show-menu" class="show-menu">MENU</label>
+  <label style='text-decoration: underline;' for="show-menu" class="show-menu">GreenScore</label>
   <input type="checkbox" id="show-menu" role="button">
   <ul id="menu">
     
@@ -92,7 +92,7 @@
       
     console.log('socket', data);  
     var html = "<li class='activity'><div id='div-desc'><p id='desc'>" + data.desc + "</p></div><div id='img-container'><img styles='float: right' width='100' src='img/" + images[data.type] + "' /><p>" + data['type score'] + "</p></div></li>";
-        $('#activities').prepend(html);
+        $('#activities').prepend($(html).hide().fadeIn(1000));
   });
     
   var images = {
