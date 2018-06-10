@@ -118,14 +118,13 @@ input[type=checkbox]:checked ~ #menu{
 .avatar-circle {
   width: 100px;
   height: 100px;
-  background-color: green;
+  background-color: blue;
   text-align: center;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   display:inline-block;
   position:relative;
-  margin: 0 auto;
 }
 
 .initials {
@@ -138,6 +137,8 @@ input[type=checkbox]:checked ~ #menu{
   color: #fff;
   font-family: "Courier New", monospace;
   font-weight: bold;
+  background-image: url("../img/LinkedIn_Bio.jpg");
+  margin: 0 auto;
 }
 
 /* profile */
@@ -156,4 +157,24 @@ input[type=checkbox]:checked ~ #menu{
     text-align: center;
     position:inline-block;
     color:blue;
+}
+
+/* profile picture second try*/
+.wrapper {
+  padding: 30px;
+}
+
+.image--cover {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: auto;
+  object-fit: cover;
+  object-position: center right;
+  display: block;
+  position:relative;
+}
+
+.profile-text{
+    text-align:center;
 }
