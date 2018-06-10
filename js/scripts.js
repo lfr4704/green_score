@@ -4,8 +4,23 @@ $(document).ready( () => {
     
     console.log("Ready!");
     
-    var ctx = $('#mycanvas').get(0).getContext("2d");
-    var myChart = new Chart(ctx, {
+    let data = {
+              'id': '1001'
+    };
+    
+    $.post('https://green-score-eagarcia.c9users.io/readUser', data, (s) => {
+        console.log('final', s);
+        
+        var globalUser = s;
+        
+        var score = s.Item.gs.energy + s.Item.gs.water + s.Item.gs.waste + s.Item.gs.space;
+        
+        $('#greenscore').html(score);
+        $('#username').html(s.Item.username);
+        
+        
+        var ctx = $('#mycanvas').get(0).getContext("2d");
+        var myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: ["Energy", "Water", "Waste", "Space","Noise"],
@@ -18,10 +33,12 @@ $(document).ready( () => {
                     'rgba(75, 192, 192, 0.2)',
                     'rgba(37, 145, 250, 0.2)'
                 ],
-                data: [30, 20, 55, 40, 60]
+                data: [globalUser.Item.gs.energy, globalUser.Item.gs.water, globalUser.Item.gs.waste, globalUser.Item.gs.space, globalUser.Item.gs.noise]
             }]
         },
 
     });
+    });
+    
         
 });
