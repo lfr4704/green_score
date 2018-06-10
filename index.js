@@ -21,8 +21,8 @@ http.listen(process.env.PORT, process.env.IP, () => {
 AWS.config.update({
   region: "us-east-1",
   endpoint: 'https://dynamodb.us-east-1.amazonaws.com',
-  accessKeyId: "AKIAJCT3HDIJXNKLA5DA",
-  secretAccessKey: "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"
+  accessKeyId: "AKIAIFSVMHAO7PKGS2VQ",
+  secretAccessKey: "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"
 });
 
 var docClient = new AWS.DynamoDB.DocumentClient();
@@ -83,7 +83,9 @@ app.post('/readActivities', (request, result) => {
 app.post('/addActivity', (request, result) => {
     // Provide all notes to the HTML display.
     
-    // io.emit('name', object); // emit to user
+    
+    
+    io.emit('update', result.body); // emit to user
     
     console.log(request.body);
     
