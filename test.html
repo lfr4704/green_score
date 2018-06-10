@@ -1,0 +1,108 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Green Score</title>
+  <meta name="description" content="Green Score">
+  <meta name="author" content="Green Score">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  
+  <script src='/socket.io/socket.io.js'></script>
+  <link rel="stylesheet" href="css/reset.css?v=1.0">
+  <link rel="stylesheet" href="css/styles.css?v=1.0"
+
+
+</head>
+
+
+<body>
+  <label for="show-menu" class="show-menu">MENU</label>
+  <input type="checkbox" id="show-menu" role="button">
+  <ul id="menu">
+    <li><a href="#">ACCOUNT</a></li>
+    <li>
+      <a href="#">SCORE ￬</a>
+      <ul class="hidden">
+        <li><a href="#">ENERGY</a></li>
+        <li><a href="#">WATER</a></li>
+        <li><a href="#">WASTE</a></li> 
+        <li><a href="#">SPACE</a></li>     
+      </ul>
+    </li>
+    <li>
+      <a href="#">ACTIVITIES ￬</a>
+      <ul class="hidden">
+        <li><a href="#">COMMUTE</a></li>
+        <li><a href="#">ENERGY CONSUMPTION</a></li>
+        <li><a href="#">WASTE GENERATION</a></li>
+      </ul>
+    </li>
+    <li><a href="#">INSIGHT</a></li>
+    <li><a href="#">REWARDS</a></li>
+  </ul>
+
+  <article>
+      
+      <input id='id' type='text' />
+      <button id="button">Drank some water!</button>
+      
+      <input id='idForGet' type='text' />
+      <button id='getUser'>Get User Details</button>
+      
+      <div id="output"></div>
+
+  </article>
+
+  <footer>
+
+  </footer>
+
+
+  <script>
+      $(document).ready(() => {
+          console.log('ready');
+          
+          $('#getUser').click(() => {
+            
+            let data = {
+              'id': $('#idForGet').val()
+            };
+            
+            console.log(data);
+            
+            
+          
+            $.post('https://green-score-eagarcia.c9users.io/readUser', data, (s) => {
+              console.log('final', s);
+              $('#output').html('<p>Your score is: ' + ((s.Item.gs.energy + s.Item.gs.water + s.Item.gs.waste + s.Item.gs.space) / 4) + '</p>');
+            });
+              
+          });
+          
+          $('#button').click(() => {
+            
+            let data = {
+              'id': $('#id').val(),
+              'user id': '1001',
+              'type': 'water',
+              'type score': 1
+            }
+          
+            console.log(data);
+            
+            $.post('https://green-score-eagarcia.c9users.io/addActivity', data);
+          });
+          
+      });
+      
+      
+  </script>
+
+</body>
+</html>
