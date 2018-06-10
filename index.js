@@ -21,8 +21,8 @@ http.listen(process.env.PORT, process.env.IP, () => {
 AWS.config.update({
   region: "us-east-1",
   endpoint: 'https://dynamodb.us-east-1.amazonaws.com',
-  accessKeyId: "AKIAJ7KFJ7N6GY45ZKYA",
-  secretAccessKey: "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"
+  accessKeyId: "AKIAJGTIHGFZQ27JUPWA",
+  secretAccessKey: "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"
 });
 
 var docClient = new AWS.DynamoDB.DocumentClient();
@@ -65,8 +65,17 @@ app.post('/readActivities', (request, result) => {
     
     let activitySearch = {
         TableName: 'greenscore-activity',
-        Item: request.body
     };
+    
+    docClient.scan(activitySearch, (error, data) => {
+    
+        if (error) {
+            console.error("Unable to read items. Error JSON:", JSON.stringify(error, null, 2));
+        } else  {
+            console.log(data);
+            result.send(data);
+        } 
+    });
     
     
 });
