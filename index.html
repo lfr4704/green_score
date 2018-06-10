@@ -12,6 +12,7 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   
   <script src='/socket.io/socket.io.js'></script>
   <link rel="stylesheet" href="css/reset.css?v=1.0">
@@ -52,6 +53,7 @@
     <div class='avatar-circle'>
       <span class="initials">JD</span>
     </div>
+    
     <div>
       <ul class="profile">
         <li>Username</li>
@@ -59,6 +61,12 @@
         <li>Score</li>
       </ul>
     </div>
+    
+    <div>
+      <canvas id="mycanvas" width="256" height="256"></canvas>
+    </div>
+    
+    
     
   </article>
 
